@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+      <div class="progress">
+          <div class="indeterminate"></div>
+      </div>  
+   <form action="" method="POST">
+    <div class="input-field">
+        <input id="query" type="text" placeholder="enter product name" name="query">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+          </button><br>
+          <div class="progress">
+              <div class="indeterminate"></div>
+          </div>             
+    </div>   
+ </form>
+ <table class="striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>url</th>
+            </tr>
+          </thead>
+      {% for product in products %}
+      <tbody>
+      <tr>
+        <td><b>{{product.title}}</b></td>
+        <td><b>{{product.price}}</b></td>
+        <td><img src="{{product.img}}">
+        <td><b>{{product.url}}</b></td> 
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>    
+</div>
+{% endblock %}
